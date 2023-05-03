@@ -79,8 +79,8 @@ builder.Services.AddAuthentication(options =>
     })
     .AddGoogle(opt =>
     {
-        opt.ClientId = "YOUR_GOOGLE_CLIENT_ID";
-        opt.ClientSecret = "YOUR_GOOGLE_CLIENT_SECRET";
+        opt.ClientId = builder.Configuration["GoogleOAuth: ClienId"];
+        opt.ClientSecret = builder.Configuration["GoogleOAuth:ClientSecret"];
     });
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
@@ -95,9 +95,9 @@ builder.Services.AddDbContext<LagaltDbContext>(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
-builder.Services.AddTransient<IUserService, UserService>();
-builder.Services.AddTransient<IProjectService, ProjectService>();
+//builder.Services.AddAutoMapper(typeof(Program).Assembly);
+//builder.Services.AddTransient<IUserService, UserService>();
+//builder.Services.AddTransient<IProjectService, ProjectService>();
 
 builder.Services.AddSwaggerGen(options =>
 {
@@ -109,7 +109,7 @@ builder.Services.AddSwaggerGen(options =>
         Contact = new OpenApiContact
         {
             Name = "Github repo",
-            Url = new Uri("https://github.com/Ekkara/Lagalt-Backend.git"),
+            Url = new Uri("https://github.com/tommy-ph/Project-LagaltBackend.git"),
         }
     });
     options.IncludeXmlComments(xmlPath);
