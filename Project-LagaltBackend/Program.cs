@@ -79,8 +79,9 @@ builder.Services.AddAuthentication(options =>
     })
     .AddGoogle(opt =>
     {
-        opt.ClientId = builder.Configuration["GoogleOAuth: ClienId"];
+        opt.ClientId = builder.Configuration["GoogleOAuth:ClientId"];
         opt.ClientSecret = builder.Configuration["GoogleOAuth:ClientSecret"];
+
     });
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);

@@ -10,11 +10,11 @@ namespace Project_LagaltBackend.Services
         Task<User> UpdateUser(User user);
         Task<User> AddUser(User user);
         Task DeleteUser(int id);
-        Task<User> GetUserAsyncKeycloak(string keycloakId, string username);
+        Task<User> GetUserAsyncKeycloak(string keycloakId, string googleId, string username);
         Task UpdateUserAsyncPatch(User updatedUser, User userToPatch);
-        Task<User> PostAsyncKeycloakUsername(string keycloakId, string username);
-        Task<bool> UserInDbKeycloak(string keycloakId);
-        public User GetUserFromKeyCloak(string keycloakId);
+        Task<User> PostAsyncKeycloakUsername(string keycloakId, string googleId, string username);
+        Task<bool> UserInDbKeycloak(string keycloakId, string googleId);
+        public User GetUserFromKeyCloak(string keycloakId, string googleId);
 
     }
 }

@@ -16,13 +16,13 @@ namespace Project_LagaltBackend.Services
             _context = context;
         }
 
-        public async Task<User> GetAllUser(string keycloakId, string username)
+        public async Task<User> GetAllUser(string keycloakId, string googleId, string username)
         {
             var user = await _context.Users.SingleOrDefaultAsync(u => u.KeycloakId == keycloakId);
             
             if (user == null)
             {
-                return await AddUser(keycloakId, username);
+                return await AddUser(keycloakId, googleId, username);
             }
             return user;
         }
@@ -62,10 +62,10 @@ namespace Project_LagaltBackend.Services
 
         }
 
-        public async Task<User> AddUser(string keycloakId, string username)
+        public async Task<User> AddUser(string keycloakId, string googleId, string username)
         {     
 
-            User user = new User { KeycloakId = keycloakId, UserName = username, Status = ""};
+            User user = new User { KeycloakId = keycloakId, GoogleId =googleId, UserName = username, Status = ""};
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
@@ -85,7 +85,7 @@ namespace Project_LagaltBackend.Services
             return user;
         }
 
-        public async Task<bool> UserInDB(string keycloakId)
+        public async Task<bool> UserInDB(string keycloakId, string googleId)
         {
             return await _context.Users.AnyAsync(k => k.KeycloakId == keycloakId);
         }
@@ -120,7 +120,7 @@ namespace Project_LagaltBackend.Services
             throw new NotImplementedException();
         }
 
-        public Task<User> GetUserAsyncKeycloak(string keycloakId, string username)
+        public Task<User> GetUserAsyncKeycloak(string keycloakId, string googleId, string username)
         {
             throw new NotImplementedException();
         }
@@ -130,17 +130,17 @@ namespace Project_LagaltBackend.Services
             throw new NotImplementedException();
         }
 
-        public Task<User> PostAsyncKeycloakUsername(string keycloakId, string username)
+        public Task<User> PostAsyncKeycloakUsername(string keycloakId, string googleId, string username)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UserInDbKeycloak(string keycloakId)
+        public Task<bool> UserInDbKeycloak(string keycloakId, string googleId)
         {
             throw new NotImplementedException();
         }
 
-        public User GetUserFromKeyCloak(string keycloakId)
+        public User GetUserFromKeyCloak(string keycloakId, string googleId)
         {
             throw new NotImplementedException();
         }

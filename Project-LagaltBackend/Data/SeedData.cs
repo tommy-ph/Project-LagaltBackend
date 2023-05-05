@@ -12,7 +12,8 @@ namespace Project_LagaltBackend.Data
             new User
             {
                 Id = 1, 
-                KeycloakId = "keycloak1", 
+                KeycloakId = "keycloak1",
+                GoogleId = "goggle1",
                 UserName = "user1",            
                 Status= "Junior Dep1",
                 Picture = "Pict1.png",
@@ -29,6 +30,7 @@ namespace Project_LagaltBackend.Data
             {
                 Id = 2, 
                 KeycloakId = "keycloak2", 
+                GoogleId = "google2",
                 UserName = "user2", 
                 Picture = "Pict2.png",
                 Status= "Junior Dep2",
@@ -44,7 +46,8 @@ namespace Project_LagaltBackend.Data
              new User
             {
                 Id = 3, 
-                KeycloakId = "keycloak3", 
+                KeycloakId = "keycloak3",
+                GoogleId = "google3",
                 UserName = "user3", 
                 Picture = "Pict3.png",
                 Status= "Junior Dep3",

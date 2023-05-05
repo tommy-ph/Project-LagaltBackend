@@ -11,6 +11,10 @@ namespace Project_LagaltBackend.Models.Main
         public string? KeycloakId { get; set; }
 
         [Required]
+        [MaxLength(int.MaxValue)]
+        public string? GoogleId { get; set; }
+
+        [Required]
         [StringLength(50)]
         public string? UserName { get; set; }
 
